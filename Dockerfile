@@ -26,4 +26,4 @@ RUN git submodule init \
   && git submodule update\
   && bundle install
 
-CMD ["rake", "test["${REALM}"]", "SIGNUP_CODE="${SIGNUP_CODE}, "PROXY="${PROXY}, "ELLIS="${ELLIS}, "-f", "./Rakefile"]
+CMD rake test[${REALM}] SIGNUP_CODE=${SIGNUP_CODE} PROXY=${PROXY} ELLIS=${ELLIS} -f ./Rakefile
