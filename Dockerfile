@@ -22,9 +22,7 @@ RUN apt-get update \
 COPY ./ /home/live-test/clearwater-live-test/
 
 WORKDIR "/home/live-test/clearwater-live-test"
-RUN sed -i -e 's/git\@github.com\:Metaswitch\/quaff.git/https\:\/\/github.com\/Metaswitch\/quaff.git/g' ./.gitmodules\
-  && sed -i -e 's/git\@github.com\:Metaswitch\/clearwater-build-infra.git/https\:\/\/github.com\/Metaswitch\/clearwater-build-infra.git/g' ./.gitmodules\
-  && git submodule init \
+RUN git submodule init \
   && git submodule update\
   && bundle install
 
