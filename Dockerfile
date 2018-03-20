@@ -25,5 +25,7 @@ WORKDIR "/home/live-test/clearwater-live-test"
 RUN git submodule init \
   && git submodule update\
   && bundle install
+  && rm /usr/share/rubygems-integration/all/specifications/rake-10.5.0.gemspec
+  && bundle install
 
 CMD rake test[${REALM}] SIGNUP_CODE=${SIGNUP_CODE} PROXY=${PROXY} ELLIS=${ELLIS} -f ./Rakefile
